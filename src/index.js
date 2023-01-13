@@ -9,7 +9,7 @@ const DEBOUNCE_DELAY = 300;
 refs.input.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 function onSearch(event) {
-  const searchQuery = event.target.value;
+  const searchQuery = event.target.value.trim();
   if (searchQuery === '') {
     resetMarkup();
     return;
@@ -32,6 +32,7 @@ function onSearch(event) {
     .catch(error => {
       resetMarkup();
       console.log(error);
+      Notiflix.Notify.failure('Oops, there is no country with that name');
     });
 }
 
