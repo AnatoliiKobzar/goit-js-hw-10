@@ -47,11 +47,11 @@ function renderMarkupOneCountry(data) {
     population,
   } = data[0];
 
-  const markupOneCountry = `<img src="${svg}" alt="${official}"  width="40px">
-        <h2>${official}</h2>
-        <h3>Capital ${capital}</h3>
-        <h3>Population ${population}</h3>
-        <h3>Languages ${Object.values(languages)}</h3>`;
+  const markupOneCountry = `<div class="container"><img src="${svg}" alt="${official}"  width="60px">
+        <h2>${official}</h2></div>
+        <h3>Capital: ${capital}</h3>
+        <h3>Population: ${population}</h3>
+        <h3>Languages: ${Object.values(languages)}</h3>`;
 
   refs.info.innerHTML = markupOneCountry;
 }
@@ -62,8 +62,8 @@ function renderMarkupList(data) {
   const country = data
     .map(
       info =>
-        `<li>
-        <img src="${info.flags.svg}" alt="${info.name.official}"  width="40px">
+        `<li class="list-item">
+        <img src="${info.flags.svg}" alt="${info.name.official}" width="40px" height="22px">
         <h2>${info.name.official}</h2>
         </li>`
     )
