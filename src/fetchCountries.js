@@ -5,8 +5,11 @@ function fetchCountries(name) {
   const options = 'fields=name,capital,population,flags,languages';
 
   return fetch(`${BASE_URL}/name/${name}?${options}`).then(response => {
+    console.log('response :>> ', response);
     if (!response.ok) {
-      throw new Error(response.statusText);
+      return Notiflix.Notify.failure(
+        'Oops, there is no country with that name'
+      );
     }
     return response.json();
   });
